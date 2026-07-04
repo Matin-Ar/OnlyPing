@@ -1,0 +1,46 @@
+# Built artifacts
+bin/
+gen/
+out/
+build/
+.gradle/
+.kotlin/
+app/build/
+app/release/
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.factorypath
+captures/
+.externalNativeBuild/
+.cxx/
+
+# User-specific files
+local.properties
+.DS_Store
+
+# Log files
+*.log
+
+# Android Studio
+*.swp
+*~
+.navigation/
+assetWizardSettings.xml
+
+# Gradle
+.gradle/
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
