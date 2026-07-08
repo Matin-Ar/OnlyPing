@@ -21,10 +21,12 @@ class ConnectivityUseCase(private val repository: NetworkRepository = NetworkRep
         when (type) {
             TargetType.WEBSITE -> {
                 // Primary: HTTP HEAD
+                val startTime = System.currentTimeMillis()
                 val httpResult = repository.checkHttp(host)
                 if (httpResult != null) {
                     isReachable = true
-                    logs.add(LogEntry(eventType = "HTTP", message = "Connected via HTTP (Code $httpResult)", protocol = "HTTP"))
+                    primaryLatency = System.currentTimeMillis() - startTime
+                    logs.add(LogEntry(eventType = "HTTP", message = "Connected via HTTP (Code $httpResult)", protocol = "HTTP", latency = primaryLatency))
                 } else {
                     isReachable = false
                     logs.add(LogEntry(eventType = "HTTP", message = "HTTP check failed", isSuccess = false, protocol = "HTTP"))
@@ -54,10 +56,12 @@ class ConnectivityUseCase(private val repository: NetworkRepository = NetworkRep
                         }
                     } else {
                         // Primary: HTTP (Web host assumption)
+                        val startTime = System.currentTimeMillis()
                         val httpCode = repository.checkHttp(host)
                         if (httpCode != null) {
                             isReachable = true
-                            logs.add(LogEntry(eventType = "HTTP", message = "HTTP reachable (Code $httpCode)", protocol = "HTTP"))
+                            primaryLatency = System.currentTimeMillis() - startTime
+                            logs.add(LogEntry(eventType = "HTTP", message = "HTTP reachable (Code $httpCode)", protocol = "HTTP", latency = primaryLatency))
                         } else {
                             isReachable = false
                             logs.add(LogEntry(eventType = "HTTP", message = "HTTP unreachable", isSuccess = false, protocol = "HTTP"))
@@ -90,10 +94,12 @@ class ConnectivityUseCase(private val repository: NetworkRepository = NetworkRep
             }
             TargetType.IP_ONLY -> {
                 // Primary: ICMP
+                val startTime = System.currentTimeMillis()
                 val icmpOk = repository.pingOnce(host)
                 if (icmpOk) {
                     isReachable = true
-                    logs.add(LogEntry(eventType = "ICMP", message = "ICMP Ping successful", protocol = "ICMP"))
+                    primaryLatency = System.currentTimeMillis() - startTime
+                    logs.add(LogEntry(eventType = "ICMP", message = "ICMP Ping successful", protocol = "ICMP", latency = primaryLatency))
                 } else {
                     logs.add(LogEntry(eventType = "ICMP", message = "ICMP Ping failed", isSuccess = false, protocol = "ICMP"))
                     // Fallback to TCP 443/80

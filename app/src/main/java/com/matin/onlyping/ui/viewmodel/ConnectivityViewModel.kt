@@ -38,7 +38,9 @@ class ConnectivityViewModel(
     }
 
     fun updatePort(port: String) {
-        _uiState.update { it.copy(port = port) }
+        if (port.isEmpty() || port.all { it.isDigit() }) {
+            _uiState.update { it.copy(port = port) }
+        }
     }
 
     fun startMonitoring() {

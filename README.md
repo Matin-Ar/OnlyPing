@@ -176,7 +176,9 @@ All connectivity checks are performed directly from your device.
 
 # Screenshots
 
-Coming soon.
+<p align="center">
+  <img src="assets/screenshot-home.jpg" width="300" alt="Only Ping Home Screen">
+</p>
 
 ---
 

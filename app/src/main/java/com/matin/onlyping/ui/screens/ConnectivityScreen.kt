@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -21,6 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
@@ -225,9 +227,10 @@ fun InputSection(
                         shape = RoundedCornerShape(8.dp)
                     )
                 }
-                Column(modifier = Modifier.width(110.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Column(modifier = Modifier.width(120.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("Port (Optional)", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
+                        Text("Port", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
+                        Text(" (Optional)", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.outline)
                         IconButton(onClick = { showPortInfo = true }, modifier = Modifier.size(32.dp)) {
                             Icon(Icons.Default.Info, contentDescription = null, modifier = Modifier.size(16.dp), tint = MaterialTheme.colorScheme.primary)
                         }
@@ -238,6 +241,7 @@ fun InputSection(
                         modifier = Modifier.fillMaxWidth(),
                         singleLine = true,
                         enabled = !isMonitoring,
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         trailingIcon = {
                             if (port.isNotEmpty() && !isMonitoring) {
                                 IconButton(onClick = { onPortChange("") }) {
