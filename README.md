@@ -9,6 +9,28 @@
   Monitor websites, domains, IP addresses, and TCP services using a smart reachability-first strategy.
 </p>
 
+<p align="center">
+  <a href="https://developer.android.com/">
+    <img src="https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white" />
+  </a>
+
+  <a href="https://kotlinlang.org/">
+    <img src="https://img.shields.io/badge/Kotlin-2.4.0-7F52FF?logo=kotlin&logoColor=white" />
+  </a>
+
+  <a href="https://github.com/Matin-Ar/OnlyPing/releases/latest">
+    <img src="https://img.shields.io/github/downloads/Matin-Ar/OnlyPing/latest/total?logo=github&label=Downloads" />
+  </a>
+
+  <a href="https://t.me/Matin_Ar">
+    <img src="https://img.shields.io/badge/Chat-Telegram-26A5E4?logo=telegram&logoColor=white" />
+  </a>
+
+  <a href="https://github.com/Matin-Ar/OnlyPing#-support">
+    <img src="https://img.shields.io/badge/Donate-Support-FF813F?logo=bitcoin&logoColor=white" />
+  </a>
+</p>
+
 ---
 
 ## Overview
