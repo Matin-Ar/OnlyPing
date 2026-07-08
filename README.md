@@ -26,7 +26,7 @@
     <img src="https://img.shields.io/badge/Chat-Telegram-26A5E4?logo=telegram&logoColor=white" />
   </a>
 
-  <a href="https://github.com/Matin-Ar/OnlyPing#-support">
+  <a href="https://github.com/Matin-Ar/OnlyPing#%EF%B8%8F-support">
     <img src="https://img.shields.io/badge/Donate-Support-FF813F?logo=bitcoin&logoColor=white" />
   </a>
 </p>
